@@ -1,0 +1,120 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Emailwithcode{
+  id           Int      @id @default(autoincrement())
+  email        String   @unique
+  code         String
+}
+
+
+model Student {
+  id           Int               @id @default(autoincrement())
+  username        String            @unique
+  name         String
+  password     String
+  created_at   DateTime          @default(now())
+  details      Student_details?  @relation(name: "studentTostudent_details")
+  student_interests       Student_interests?   @relation(name:"studentTostudent_interests")
+  calender_events       Calenderevents[] @relation(name: "studentTocalender")
+  student_goals       Student_goals[]   @relation(name:"studentTostudent_goals")
+  student_learning       Student_learning[]   @relation(name:"studentTostudent_learning")
+}
+
+model Data {
+  id           Int               @id @default(autoincrement())
+  type          String?
+  grade_level         String?
+  format              String?
+  theme               String?
+  name                String?
+  link                String?
+  description           String?
+}
+
+
+model Student_details {
+  id                     Int      @id @default(autoincrement())
+  student_id             Int      @unique
+  gpa                    String?
+  fav_subjects            String?
+  satScore                    String?
+  ab_ib                  String?
+  dreamColleges         String?
+  current_majors         String?
+  majors                 String?
+  extracurriculars       String?
+  sports                 String?
+  awards                 String?
+  achievements           String?
+  hobbies                String?
+  budget              String?
+  state                  String?
+  city                   String?
+  stayLocal               Boolean?
+  school                 String?
+  opportunities           Boolean?
+  isUSResident            String?
+  themes                  String?
+  format                  String?
+  updated_at   DateTime          @default(now())
+  student                Student  @relation(name: "studentTostudent_details", fields: [student_id], references: [id], onDelete: Cascade)
+}
+
+model Student_interests {
+  id           Int      @id @default(autoincrement())
+  student_id   Int      @unique
+  interests    String
+  student      Student  @relation(name: "studentTostudent_interests", fields: [student_id], references: [id],onDelete: Cascade)
+}
+
+model Student_goals {
+  id           Int      @id @default(autoincrement())
+  student_id        Int      
+  goal        String
+  tasks         String[]
+  student      Student  @relation(name: "studentTostudent_goals", fields: [student_id], references: [id],onDelete: Cascade)
+}
+
+model Student_learning {
+  id           Int      @id @default(autoincrement())
+  student_id   Int      
+  topic        String
+  path          learning_path[] @relation(name:"learning_pathTostudent_learning")
+  student      Student  @relation(name: "studentTostudent_learning", fields: [student_id], references: [id],onDelete: Cascade)
+}
+
+model learning_path {
+  id           Int      @id @default(autoincrement())
+  Student_learning_id           Int
+  stage        Int
+  title       String
+  description           String
+  info        String
+  link        String
+  student_learning  Student_learning  @relation(name: "learning_pathTostudent_learning", fields: [Student_learning_id], references: [id],onDelete: Cascade)
+}
+
+
+
+
+model Calenderevents {
+  id          Int      @id @default(autoincrement())
+  student_id     Int      
+  title       String
+  description String?
+  start       DateTime
+  end         DateTime
+  color       String   
+  student         Student     @relation(name: "studentTocalender",fields: [student_id], references: [id], onDelete: Cascade)
+}
+
+
+
