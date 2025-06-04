@@ -1,0 +1,28 @@
+name = "oppurt_backend"
+compatibility_date = "2023-12-01"
+
+# [vars]
+# MY_VAR = "my-variable"
+
+[vars]
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiY2RhNjlmN2YtNTFkYS00MmMwLWFmYjMtODIyMTYwMTdjMmY4IiwidGVuYW50X2lkIjoiNjliOGNhMTU0ZGRhMGZmYjI3YzA2OGQ4OWI1YTRmNjc1MDcwYTQ0YTA3ZGNkNjhlMjYzNDI2NjAzZmM0YzA2MyIsImludGVybmFsX3NlY3JldCI6IjUzOTdhMTI1LWFhMDgtNDQyMS05NGNlLWFhZTljM2YyYzY1ZSJ9.K2bwoYyimuWdcofJbBAxALQR5k0d6WxwsD81xRiz-38"
+OPENAI_KEY="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"
+#[vars]
+#DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMjY3N2FmOTctMjAwNy00ZThlLThkMTgtZDJmZWQ3MDc5Mzk0IiwidGVuYW50X2lkIjoiZDZiNWRmYTk5MzQ4Y2Y2OGMzYTZjMWFiZDkxZDk3NTc4NWRjZmU2ZDNiODZjOTViZWI1NTMyZmJjYzg3NjE3MSIsImludGVybmFsX3NlY3JldCI6IjQwZjExNWFiLWZhOTEtNDgzOS04ZGM3LTFkMGM5ZGFmMWRlZSJ9.XzfrTtneQXM4-XV98iOGXmM_yNkMgyyiViMb5d7kvi8"
+
+
+# [[kv_namespaces]]
+# binding = "MY_KV_NAMESPACE"
+# id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+#DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiOGZhY2EzMGEtZWRiMi00YjhhLWFkMWQtNTIwZGE0ZjY2NzA3IiwidGVuYW50X2lkIjoiMDAwMWY0NjdlNTlkNzNhYmE3NDIwZTkzZDc2MGI2ZTUxYjYzZTkwMDkxYjQ3NDM2YTE2NzcyYTc1ZjBkZDgxZSIsImludGVybmFsX3NlY3JldCI6Ijg3MTJmNTI0LWJkMTYtNDk3Zi1iODE3LWQzM2ZmNTJkM2ViNiJ9.qjWr1UB_y83ipgx9-boMH1Sf5Nd2l_7hW7MYN10qIhk"
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
+
+# [[d1_databases]]
+# binding = "DB"
+# database_name = "my-database"
+# database_id = ""
+
+# [ai]
+# binding = "AI"
